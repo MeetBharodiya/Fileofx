@@ -1,6 +1,3 @@
-//
-// import connectToMongo from "./db";
-
 const connectToMongo = require("./db");
 const express = require("express");
 var cors = require("cors");
@@ -29,11 +26,8 @@ app.all("*", function (req, res, next) {
 });
 
 connectToMongo();
-
-//middelware req.body mate
 app.use(express.json());
 
-// availble routes
 app.use("/api/auth", require("./Routes/auth"));
 app.use("/api/notes", require("./Routes/notes"));
 app.use("/api/contact", require("./Routes/contact"));
